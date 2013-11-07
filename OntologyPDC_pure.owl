@@ -57,16 +57,6 @@
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >科研项目记录</rdfs:comment>
     <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="is_a_activity"/>
-        </owl:onProperty>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#Activity"/>
-        </owl:allValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
       <owl:Class rdf:about="#Activity"/>
     </rdfs:subClassOf>
   </owl:Class>
@@ -74,21 +64,11 @@
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >话费记录</rdfs:comment>
     <owl:disjointWith>
-      <owl:Class rdf:ID="TradingRecord"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
       <owl:Class rdf:ID="CallRecord"/>
     </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="is_a_record"/>
-        </owl:onProperty>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#Record"/>
-        </owl:allValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TradingRecord"/>
+    </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Record"/>
     </rdfs:subClassOf>
@@ -131,10 +111,10 @@
       <owl:Class rdf:about="#Account"/>
     </owl:disjointWith>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith rdf:resource="#Course"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Writing"/>
     </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Course"/>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >D:time,property;T:preference;</rdfs:label>
     <owl:disjointWith>
@@ -178,30 +158,24 @@
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >D:time,view;T:history;</rdfs:label>
     <owl:disjointWith>
-      <owl:Class rdf:about="#User"/>
+      <owl:Class rdf:about="#AccumulatePoint"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:about="#AccumulatePoint"/>
+      <owl:Class rdf:about="#User"/>
     </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:about="#Order"/>
     </owl:disjointWith>
     <owl:disjointWith rdf:resource="#Course"/>
   </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#TradingRecord"/>
+      <owl:Class rdf:about="#CallRecord"/>
+      <owl:Class rdf:about="#CallCredit"/>
+    </owl:unionOf>
+  </owl:Class>
   <owl:Class rdf:ID="Teacher">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#User"/>
-        </owl:allValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="is_a_user"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#User"/>
-    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:allValuesFrom rdf:resource="#Course"/>
@@ -209,6 +183,9 @@
           <owl:ObjectProperty rdf:ID="teach_course"/>
         </owl:onProperty>
       </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#User"/>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#Writing">
@@ -244,44 +221,34 @@
       <owl:Class rdf:about="#Activity"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:about="#User"/>
+      <owl:Class rdf:about="#MobilePhone"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:about="#MobilePhone"/>
+      <owl:Class rdf:about="#User"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:about="#TradingRecord">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >支付宝、中国银行网银等的交易信息类</rdfs:comment>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >D:finance;</rdfs:label>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#CallRecord"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#CallCredit"/>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Record"/>
-    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >支付宝、中国银行网银等的交易信息类</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#Record"/>
-        </owl:allValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#is_a_record"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="have_order"/>
-        </owl:onProperty>
         <owl:allValuesFrom>
           <owl:Class rdf:about="#Order"/>
         </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="have_order"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Record"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#CallCredit"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CallRecord"/>
+    </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:about="#Activity">
     <owl:disjointWith>
@@ -333,6 +300,9 @@
   </owl:Class>
   <owl:Class rdf:ID="Student">
     <rdfs:subClassOf>
+      <owl:Class rdf:about="#User"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
       <owl:Restriction>
         <owl:allValuesFrom rdf:resource="#Course"/>
         <owl:onProperty>
@@ -340,19 +310,15 @@
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#User"/>
-        </owl:allValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#is_a_user"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#User"/>
-    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#Teacher"/>
+      <owl:Class rdf:about="#Student"/>
+      <owl:Class rdf:ID="Fan"/>
+      <owl:Class rdf:ID="Buyer"/>
+      <owl:Class rdf:ID="Seller"/>
+    </owl:unionOf>
   </owl:Class>
   <owl:Class rdf:about="#Location">
     <owl:disjointWith rdf:resource="#Review"/>
@@ -429,40 +395,22 @@
     </owl:disjointWith>
     <owl:disjointWith rdf:resource="#Location"/>
   </owl:Class>
-  <owl:Class rdf:ID="Goods">
+  <owl:Class rdf:about="#CallRecord">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >通话记录</rdfs:comment>
+    <owl:disjointWith rdf:resource="#CallCredit"/>
+    <owl:disjointWith rdf:resource="#TradingRecord"/>
     <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="is_a_entity"/>
-        </owl:onProperty>
-        <owl:allValuesFrom rdf:resource="#Entity"/>
-      </owl:Restriction>
+      <owl:Class rdf:about="#Record"/>
     </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Goods">
     <rdfs:subClassOf rdf:resource="#Entity"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >杯具、飞机票等实物，也可以是某项服务</rdfs:comment>
     <owl:disjointWith>
       <owl:Class rdf:ID="Media"/>
     </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="#CallRecord">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >通话记录</rdfs:comment>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#Record"/>
-        </owl:allValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#is_a_record"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Record"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="#TradingRecord"/>
-    <owl:disjointWith rdf:resource="#CallCredit"/>
   </owl:Class>
   <owl:Class rdf:about="#Account">
     <owl:disjointWith rdf:resource="#Writing"/>
@@ -507,23 +455,10 @@
   <owl:Class rdf:about="#User">
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#AccumulatePoint"/>
-        </owl:allValuesFrom>
+        <owl:allValuesFrom rdf:resource="#Account"/>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_AP"/>
+          <owl:ObjectProperty rdf:ID="own_account"/>
         </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="#Review"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_MP"/>
-        </owl:onProperty>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#MobilePhone"/>
-        </owl:allValuesFrom>
       </owl:Restriction>
     </rdfs:subClassOf>
     <owl:disjointWith>
@@ -531,19 +466,32 @@
     </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Activity"/>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="create_activity"/>
+          <owl:ObjectProperty rdf:ID="own_record"/>
         </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Record"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Review"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="issue"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Writing"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >D:people;</rdfs:label>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Account"/>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#MobilePhone"/>
+        </owl:allValuesFrom>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_account"/>
+          <owl:ObjectProperty rdf:ID="own_MP"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -557,15 +505,13 @@
       </owl:Restriction>
     </rdfs:subClassOf>
     <owl:disjointWith rdf:resource="#Location"/>
-    <owl:disjointWith rdf:resource="#Writing"/>
     <owl:disjointWith rdf:resource="#Activity"/>
+    <owl:disjointWith rdf:resource="#Writing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#Record"/>
-        </owl:allValuesFrom>
+        <owl:allValuesFrom rdf:resource="#Activity"/>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_record"/>
+          <owl:ObjectProperty rdf:ID="create_activity"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -574,9 +520,11 @@
     >各种应用用户的基本信息类</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Location"/>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#UserCredit"/>
+        </owl:allValuesFrom>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#have_location"/>
+          <owl:ObjectProperty rdf:ID="own_UC"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -589,26 +537,18 @@
       <owl:Class rdf:about="#Order"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:about="#UserCredit"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
       <owl:Class rdf:about="#Record"/>
     </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="issue"/>
-        </owl:onProperty>
-        <owl:allValuesFrom rdf:resource="#Writing"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#UserCredit"/>
+    </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:allValuesFrom>
-          <owl:Class rdf:about="#UserCredit"/>
+          <owl:Class rdf:about="#AccumulatePoint"/>
         </owl:allValuesFrom>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_UC"/>
+          <owl:ObjectProperty rdf:ID="own_AP"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -624,68 +564,52 @@
     <owl:disjointWith>
       <owl:Class rdf:about="#AccumulatePoint"/>
     </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#User"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Order"/>
     </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#User"/>
     <owl:disjointWith rdf:resource="#Writing"/>
+    <owl:disjointWith rdf:resource="#Collection"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#MobilePhone"/>
     </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Collection"/>
     <owl:disjointWith rdf:resource="#Entity"/>
     <owl:disjointWith rdf:resource="#Location"/>
     <owl:disjointWith rdf:resource="#Activity"/>
   </owl:Class>
-  <owl:Class rdf:ID="Seller">
+  <owl:Class rdf:about="#Seller">
+    <rdfs:subClassOf rdf:resource="#User"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#is_a_user"/>
-        </owl:onProperty>
-        <owl:allValuesFrom rdf:resource="#User"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="accept_order"/>
-        </owl:onProperty>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#Order"/>
-        </owl:allValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Goods"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:ID="sell"/>
         </owl:onProperty>
-        <owl:allValuesFrom rdf:resource="#Goods"/>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="#User"/>
-  </owl:Class>
-  <owl:Class rdf:ID="Buyer">
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#is_a_user"/>
-        </owl:onProperty>
-        <owl:allValuesFrom rdf:resource="#User"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="#User"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="place_order"/>
-        </owl:onProperty>
         <owl:allValuesFrom>
           <owl:Class rdf:about="#Order"/>
         </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="accept_order"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Buyer">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Order"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="place_order"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#User"/>
   </owl:Class>
   <owl:Class rdf:about="#UserCredit">
     <owl:disjointWith rdf:resource="#Activity"/>
@@ -702,8 +626,8 @@
     <owl:disjointWith rdf:resource="#Writing"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >用户信用</rdfs:comment>
-    <owl:disjointWith rdf:resource="#Record"/>
     <owl:disjointWith rdf:resource="#Collection"/>
+    <owl:disjointWith rdf:resource="#Record"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Order"/>
     </owl:disjointWith>
@@ -751,14 +675,6 @@
     <owl:disjointWith rdf:resource="#Review"/>
   </owl:Class>
   <owl:Class rdf:about="#Media">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Entity"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#is_a_entity"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
     <rdfs:subClassOf rdf:resource="#Entity"/>
     <owl:disjointWith rdf:resource="#Goods"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -785,8 +701,8 @@
     </rdfs:subClassOf>
     <owl:disjointWith rdf:resource="#Activity"/>
     <owl:disjointWith rdf:resource="#Review"/>
-    <owl:disjointWith rdf:resource="#Writing"/>
     <owl:disjointWith rdf:resource="#Entity"/>
+    <owl:disjointWith rdf:resource="#Writing"/>
     <owl:disjointWith rdf:resource="#User"/>
     <owl:disjointWith rdf:resource="#Course"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -794,17 +710,10 @@
     <owl:disjointWith rdf:resource="#UserCredit"/>
     <owl:disjointWith rdf:resource="#Location"/>
   </owl:Class>
-  <owl:Class rdf:ID="Fan">
+  <owl:Class rdf:about="#Fan">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >社交网络中主动跟随其他人的用户</rdfs:comment>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#is_a_user"/>
-        </owl:onProperty>
-        <owl:allValuesFrom rdf:resource="#User"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#User"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:allValuesFrom rdf:resource="#User"/>
@@ -813,20 +722,17 @@
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="#User"/>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#Goods"/>
+      <owl:Class rdf:about="#Media"/>
+    </owl:unionOf>
   </owl:Class>
   <owl:Class rdf:ID="SalaryRecord">
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >D:property;</rdfs:label>
     <rdfs:subClassOf rdf:resource="#Record"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Record"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#is_a_record"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >个人工资</rdfs:comment>
   </owl:Class>
@@ -853,20 +759,6 @@
     <rdfs:domain rdf:resource="#User"/>
     <rdfs:range rdf:resource="#Collection"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#is_a_user">
-    <rdfs:domain>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#Teacher"/>
-          <owl:Class rdf:about="#Student"/>
-          <owl:Class rdf:about="#Fan"/>
-          <owl:Class rdf:about="#Buyer"/>
-          <owl:Class rdf:about="#Seller"/>
-        </owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
-    <rdfs:range rdf:resource="#User"/>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_CR">
     <rdfs:range rdf:resource="#CallRecord"/>
     <rdfs:domain rdf:resource="#MobilePhone"/>
@@ -875,121 +767,87 @@
     <rdfs:range rdf:resource="#Goods"/>
     <rdfs:domain rdf:resource="#Order"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#is_a_entity">
-    <rdfs:domain>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#Goods"/>
-          <owl:Class rdf:about="#Media"/>
-        </owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
-    <rdfs:range rdf:resource="#Entity"/>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#own_MP">
-    <rdfs:range rdf:resource="#MobilePhone"/>
     <rdfs:domain rdf:resource="#User"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#is_a_activity">
-    <rdfs:range rdf:resource="#Activity"/>
-    <rdfs:domain rdf:resource="#Project"/>
+    <rdfs:range rdf:resource="#MobilePhone"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#follow">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >跟随关系</rdfs:comment>
-    <rdfs:domain rdf:resource="#Fan"/>
     <rdfs:range rdf:resource="#User"/>
+    <rdfs:domain rdf:resource="#Fan"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#teach_course">
+    <rdfs:domain rdf:resource="#Teacher"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >讲授</rdfs:comment>
+    <rdfs:range rdf:resource="#Course"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#own_AP">
+    <rdfs:range rdf:resource="#AccumulatePoint"/>
+    <rdfs:domain rdf:resource="#User"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#review">
     <rdfs:domain rdf:resource="#User"/>
     <rdfs:range rdf:resource="#Review"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#have_CC">
-    <rdfs:range rdf:resource="#CallCredit"/>
-    <rdfs:domain rdf:resource="#MobilePhone"/>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#own_account">
     <rdfs:domain rdf:resource="#User"/>
     <rdfs:range rdf:resource="#Account"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#have_CC">
+    <rdfs:range rdf:resource="#CallCredit"/>
+    <rdfs:domain rdf:resource="#MobilePhone"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#own_UC">
+    <rdfs:domain rdf:resource="#User"/>
+    <rdfs:range rdf:resource="#UserCredit"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_order">
-    <rdfs:domain rdf:resource="#TradingRecord"/>
     <rdfs:range rdf:resource="#Order"/>
+    <rdfs:domain rdf:resource="#TradingRecord"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#accept_order">
+    <rdfs:range rdf:resource="#Order"/>
+    <rdfs:domain rdf:resource="#Seller"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#own_record">
+    <rdfs:range rdf:resource="#Record"/>
+    <rdfs:domain rdf:resource="#User"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_entity">
     <rdfs:domain rdf:resource="#Collection"/>
     <rdfs:range rdf:resource="#Entity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#sell">
+    <rdfs:domain rdf:resource="#Seller"/>
+    <rdfs:range rdf:resource="#Goods"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_TR">
     <rdfs:domain rdf:resource="#Account"/>
     <rdfs:range rdf:resource="#TradingRecord"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_location">
-    <rdfs:domain>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#User"/>
-          <owl:Class rdf:about="#Activity"/>
-        </owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
+    <rdfs:domain rdf:resource="#Activity"/>
     <rdfs:range rdf:resource="#Location"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#place_order">
-    <rdfs:domain rdf:resource="#Buyer"/>
-    <rdfs:range rdf:resource="#Order"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >订购</rdfs:comment>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#own_AP">
-    <rdfs:domain rdf:resource="#User"/>
-    <rdfs:range rdf:resource="#AccumulatePoint"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#teach_course">
-    <rdfs:domain rdf:resource="#Teacher"/>
-    <rdfs:range rdf:resource="#Course"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >讲授</rdfs:comment>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#own_UC">
-    <rdfs:range rdf:resource="#UserCredit"/>
-    <rdfs:domain rdf:resource="#User"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#accept_order">
-    <rdfs:domain rdf:resource="#Seller"/>
-    <rdfs:range rdf:resource="#Order"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#is_a_record">
-    <rdfs:range rdf:resource="#Record"/>
-    <rdfs:domain>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#TradingRecord"/>
-          <owl:Class rdf:about="#CallRecord"/>
-          <owl:Class rdf:about="#CallCredit"/>
-        </owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#sell">
-    <rdfs:range rdf:resource="#Goods"/>
-    <rdfs:domain rdf:resource="#Seller"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#own_record">
-    <rdfs:domain rdf:resource="#User"/>
-    <rdfs:range rdf:resource="#Record"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#create_activity">
     <rdfs:domain rdf:resource="#User"/>
     <rdfs:range rdf:resource="#Activity"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#issue">
-    <rdfs:domain rdf:resource="#User"/>
     <rdfs:range rdf:resource="#Writing"/>
+    <rdfs:domain rdf:resource="#User"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_review">
     <rdfs:range rdf:resource="#Review"/>
     <rdfs:domain rdf:resource="#Entity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#place_order">
+    <rdfs:domain rdf:resource="#Buyer"/>
+    <rdfs:range rdf:resource="#Order"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >订购</rdfs:comment>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_cource">
     <rdfs:domain rdf:resource="#Student"/>
@@ -1818,66 +1676,36 @@
   </owl:FunctionalProperty>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >in</rdf:first>
       <rdf:rest rdf:parseType="Resource">
         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >movie</rdf:first>
-        <rdf:rest rdf:parseType="Resource">
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >picture</rdf:first>
-          <rdf:rest rdf:parseType="Resource">
-            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >bool</rdf:first>
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-          </rdf:rest>
-        </rdf:rest>
+        >out</rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       </rdf:rest>
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >music</rdf:first>
     </owl:oneOf>
   </owl:DataRange>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >do</rdf:first>
       <rdf:rest rdf:parseType="Resource">
         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >collect</rdf:first>
         <rdf:rest rdf:parseType="Resource">
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >wish</rdf:first>
-          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         </rdf:rest>
       </rdf:rest>
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >do</rdf:first>
-    </owl:oneOf>
-  </owl:DataRange>
-  <owl:DataRange>
-    <owl:oneOf rdf:parseType="Resource">
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >shop</rdf:first>
-      <rdf:rest rdf:parseType="Resource">
-        <rdf:rest rdf:parseType="Resource">
-          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >media</rdf:first>
-        </rdf:rest>
-        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >goods</rdf:first>
-      </rdf:rest>
-    </owl:oneOf>
-  </owl:DataRange>
-  <owl:DataRange>
-    <owl:oneOf rdf:parseType="Resource">
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >WAIT_BUYER_PAY</rdf:first>
-      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
     </owl:oneOf>
   </owl:DataRange>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
       <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >buyer</rdf:first>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       </rdf:rest>
       <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
       >seller</rdf:first>
@@ -1885,8 +1713,13 @@
   </owl:DataRange>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >normal</rdf:first>
+      >WAIT_BUYER_PAY</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
       <rdf:rest rdf:parseType="Resource">
         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >inactive</rdf:first>
@@ -1894,26 +1727,51 @@
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >delete</rdf:first>
           <rdf:rest rdf:parseType="Resource">
-            <rdf:rest rdf:parseType="Resource">
-              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >supervise</rdf:first>
-            </rdf:rest>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >freeze</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >supervise</rdf:first>
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:rest>
           </rdf:rest>
         </rdf:rest>
       </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >normal</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >media</rdf:first>
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        </rdf:rest>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >goods</rdf:first>
+      </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >shop</rdf:first>
     </owl:oneOf>
   </owl:DataRange>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
       <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >in</rdf:first>
+      >music</rdf:first>
       <rdf:rest rdf:parseType="Resource">
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >bool</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >picture</rdf:first>
+        </rdf:rest>
         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >out</rdf:first>
+        >movie</rdf:first>
       </rdf:rest>
     </owl:oneOf>
   </owl:DataRange>

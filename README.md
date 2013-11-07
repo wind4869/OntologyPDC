@@ -1,0 +1,17 @@
+OntologyPDC
+========
+
+PDC项目的本体(owl)及文档
+
+About Files
+--------
+- `OntologyPDC_pure.owl`: 未添加实例数据的本体文件
+- `OntologyPDC_dirty.owl`: 添加实例数据的本体文件 
+- `OntologyPDC_pure.JPG`: 当前版本类之间关系的截图
+- `OntologyPDC_pure.doc`: 当前版本的说明文档 
+
+About examples
+--------
+- 特别地: `Buyer`类的实例叫作`Hao_Youqiang`, 属性值全面
+- 其他类的实例统一命名: `类名_Nov07`, 属性值不全
+- 可暂且忽视这样的关系: `is_a_小写类名`

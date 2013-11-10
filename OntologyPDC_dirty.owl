@@ -496,7 +496,7 @@
       <owl:Restriction>
         <owl:allValuesFrom rdf:resource="#Collection"/>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_collectioin"/>
+          <owl:ObjectProperty rdf:ID="own_collection"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -753,7 +753,7 @@
     <owl:disjointWith rdf:resource="#Order"/>
     <owl:disjointWith rdf:resource="#Writing"/>
   </owl:Class>
-  <owl:ObjectProperty rdf:about="#own_collectioin">
+  <owl:ObjectProperty rdf:about="#own_collection">
     <rdfs:range rdf:resource="#Collection"/>
     <rdfs:domain rdf:resource="#User"/>
   </owl:ObjectProperty>
@@ -1841,7 +1841,7 @@
     >黑龙江省哈尔滨市南岗区西大直街92号</shipping_address>
     <education rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >大学</education>
-    <own_collectioin>
+    <own_collection>
       <Collection rdf:ID="Collection_Nov07">
         <have_entity>
           <Media rdf:ID="Media_Nov07">
@@ -1852,7 +1852,7 @@
         <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >Collection1107</id>
       </Collection>
-    </own_collectioin>
+    </own_collection>
     <nick rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >wind4869</nick>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"

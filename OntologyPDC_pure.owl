@@ -539,7 +539,7 @@
       <owl:Restriction>
         <owl:allValuesFrom rdf:resource="#Collection"/>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_collectioin"/>
+          <owl:ObjectProperty rdf:ID="own_collection"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -753,7 +753,7 @@
     <owl:disjointWith rdf:resource="#Order"/>
     <owl:disjointWith rdf:resource="#Writing"/>
   </owl:Class>
-  <owl:ObjectProperty rdf:about="#own_collectioin">
+  <owl:ObjectProperty rdf:about="#own_collection">
     <rdfs:domain rdf:resource="#User"/>
     <rdfs:range rdf:resource="#Collection"/>
   </owl:ObjectProperty>

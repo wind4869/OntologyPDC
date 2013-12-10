@@ -335,36 +335,40 @@
   <owl:Class rdf:about="#User">
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Course"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="have_cource"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#User"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="follow"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="accept_order"/>
-        </owl:onProperty>
         <owl:allValuesFrom>
           <owl:Class rdf:about="#Order"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="place_order"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Account"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="own_account"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="own_MP"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#MobilePhone"/>
         </owl:allValuesFrom>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_account"/>
+          <owl:ObjectProperty rdf:ID="own_AP"/>
         </owl:onProperty>
-        <owl:allValuesFrom rdf:resource="#Account"/>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#AccumulatePoint"/>
+        </owl:allValuesFrom>
       </owl:Restriction>
     </rdfs:subClassOf>
     <owl:disjointWith>
@@ -373,9 +377,9 @@
     <owl:disjointWith rdf:resource="#Review"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Collection"/>
+        <owl:allValuesFrom rdf:resource="#Course"/>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_collection"/>
+          <owl:ObjectProperty rdf:ID="have_cource"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -383,9 +387,11 @@
     >D:people;</rdfs:label>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Goods"/>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Record"/>
+        </owl:allValuesFrom>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="sell"/>
+          <owl:ObjectProperty rdf:ID="own_record"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -399,9 +405,11 @@
     </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Course"/>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#UserCredit"/>
+        </owl:allValuesFrom>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="teach_course"/>
+          <owl:ObjectProperty rdf:ID="own_UC"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -419,11 +427,9 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="issue"/>
+          <owl:ObjectProperty rdf:ID="own_collection"/>
         </owl:onProperty>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#Writing"/>
-        </owl:allValuesFrom>
+        <owl:allValuesFrom rdf:resource="#Collection"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -433,20 +439,20 @@
     </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Review"/>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Order"/>
+        </owl:allValuesFrom>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="review"/>
+          <owl:ObjectProperty rdf:ID="accept_order"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <owl:disjointWith rdf:resource="#Entity"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#Order"/>
-        </owl:allValuesFrom>
+        <owl:allValuesFrom rdf:resource="#User"/>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="place_order"/>
+          <owl:ObjectProperty rdf:ID="follow"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -454,11 +460,9 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_UC"/>
+          <owl:ObjectProperty rdf:ID="sell"/>
         </owl:onProperty>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#UserCredit"/>
-        </owl:allValuesFrom>
+        <owl:allValuesFrom rdf:resource="#Goods"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <owl:disjointWith>
@@ -466,11 +470,9 @@
     </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#Record"/>
-        </owl:allValuesFrom>
+        <owl:allValuesFrom rdf:resource="#Review"/>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_record"/>
+          <owl:ObjectProperty rdf:ID="review"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -483,10 +485,10 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:allValuesFrom>
-          <owl:Class rdf:about="#AccumulatePoint"/>
+          <owl:Class rdf:about="#Writing"/>
         </owl:allValuesFrom>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_AP"/>
+          <owl:ObjectProperty rdf:ID="issue"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -494,11 +496,9 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="own_MP"/>
+          <owl:ObjectProperty rdf:ID="teach_course"/>
         </owl:onProperty>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#MobilePhone"/>
-        </owl:allValuesFrom>
+        <owl:allValuesFrom rdf:resource="#Course"/>
       </owl:Restriction>
     </rdfs:subClassOf>
   </owl:Class>
@@ -761,10 +761,10 @@
     <rdfs:range rdf:resource="#MobilePhone"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#follow">
+    <rdfs:range rdf:resource="#User"/>
+    <rdfs:domain rdf:resource="#User"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >跟随关系</rdfs:comment>
-    <rdfs:domain rdf:resource="#User"/>
-    <rdfs:range rdf:resource="#User"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#teach_course">
     <rdfs:domain rdf:resource="#User"/>
@@ -777,8 +777,8 @@
     <rdfs:range rdf:resource="#AccumulatePoint"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#review">
-    <rdfs:range rdf:resource="#Review"/>
     <rdfs:domain rdf:resource="#User"/>
+    <rdfs:range rdf:resource="#Review"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#own_account">
     <rdfs:domain rdf:resource="#User"/>
@@ -789,20 +789,20 @@
     <rdfs:range rdf:resource="#CallCredit"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#own_UC">
-    <rdfs:range rdf:resource="#UserCredit"/>
     <rdfs:domain rdf:resource="#User"/>
+    <rdfs:range rdf:resource="#UserCredit"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_order">
     <rdfs:range rdf:resource="#Order"/>
     <rdfs:domain rdf:resource="#TradingRecord"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#accept_order">
-    <rdfs:domain rdf:resource="#User"/>
     <rdfs:range rdf:resource="#Order"/>
+    <rdfs:domain rdf:resource="#User"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#own_collection">
-    <rdfs:domain rdf:resource="#User"/>
     <rdfs:range rdf:resource="#Collection"/>
+    <rdfs:domain rdf:resource="#User"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#own_record">
     <rdfs:domain rdf:resource="#User"/>
@@ -813,8 +813,8 @@
     <rdfs:range rdf:resource="#Entity"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#sell">
-    <rdfs:domain rdf:resource="#User"/>
     <rdfs:range rdf:resource="#Goods"/>
+    <rdfs:domain rdf:resource="#User"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_TR">
     <rdfs:domain rdf:resource="#Account"/>
@@ -829,18 +829,18 @@
     <rdfs:range rdf:resource="#Activity"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#issue">
-    <rdfs:range rdf:resource="#Writing"/>
     <rdfs:domain rdf:resource="#User"/>
+    <rdfs:range rdf:resource="#Writing"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_review">
     <rdfs:domain rdf:resource="#Entity"/>
     <rdfs:range rdf:resource="#Review"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#place_order">
-    <rdfs:range rdf:resource="#Order"/>
-    <rdfs:domain rdf:resource="#User"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >订购</rdfs:comment>
+    <rdfs:domain rdf:resource="#User"/>
+    <rdfs:range rdf:resource="#Order"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#have_cource">
     <rdfs:domain rdf:resource="#User"/>
@@ -964,6 +964,8 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >location</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >活动地点</rdfs:comment>
@@ -1495,6 +1497,8 @@
     <rdfs:domain rdf:resource="#Order"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="raw_link">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Media或者Goods的原始资料页面链接</rdfs:comment>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -1503,61 +1507,59 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Media或者Goods的原始资料页面链接</rdfs:comment>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="collection_type">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >收藏分类，如：shop、goods、media等</rdfs:comment>
     <rdfs:domain rdf:resource="#Collection"/>
     <rdfs:range>
       <owl:DataRange>
         <owl:oneOf rdf:parseType="Resource">
           <rdf:rest rdf:parseType="Resource">
-            <rdf:rest rdf:parseType="Resource">
-              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >media</rdf:first>
-              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:rest>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >goods</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >media</rdf:first>
+            </rdf:rest>
           </rdf:rest>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >shop</rdf:first>
         </owl:oneOf>
       </owl:DataRange>
     </rdfs:range>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >收藏分类，如：shop、goods、media等</rdfs:comment>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="user_type">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#User"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >用户类型，如：seller、buyer等</rdfs:comment>
-    <rdfs:domain rdf:resource="#User"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="acp_type">
-    <rdfs:domain rdf:resource="#AccumulatePoint"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >积分种类</rdfs:comment>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#AccumulatePoint"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="buyer_message">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="#Order"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >买家留言</rdfs:comment>
+    <rdfs:domain rdf:resource="#Order"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="hometown">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >D:location;</rdfs:label>
     <rdfs:domain rdf:resource="#User"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >家乡，如：黑龙江省哈尔滨市</rdfs:comment>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >D:location;</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="activity_type">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >活动的分类</rdfs:comment>
   </owl:DatatypeProperty>
@@ -1573,27 +1575,24 @@
     <rdfs:domain rdf:resource="#Writing"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="gender">
-    <rdfs:domain rdf:resource="#User"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >用户的性别，又作sex等，两种取值：male、female。</rdfs:comment>
     <rdfs:range>
       <owl:DataRange>
         <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >male</rdf:first>
           <rdf:rest rdf:parseType="Resource">
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >female</rdf:first>
           </rdf:rest>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >male</rdf:first>
         </owl:oneOf>
       </owl:DataRange>
     </rdfs:range>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >用户的性别，又作sex等，两种取值：male、female。</rdfs:comment>
+    <rdfs:domain rdf:resource="#User"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="summary">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >评论的摘要</rdfs:comment>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -1602,19 +1601,20 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >评论的摘要</rdfs:comment>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="available_amout">
-    <rdfs:domain rdf:resource="#Account"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >可用余额</rdfs:comment>
+    <rdfs:domain rdf:resource="#Account"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="pubdate">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >D:time;T:history;</rdfs:label>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >发行、出版或上映时间，如：1970-01-01</rdfs:comment>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -1623,14 +1623,16 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >发行、出版或上映时间，如：1970-01-01</rdfs:comment>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="pay_time">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >D:time;</rdfs:label>
-    <rdfs:domain rdf:resource="#Order"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >付款时间</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#Order"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >D:time;</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="update_time">
     <rdfs:domain>
@@ -1642,27 +1644,26 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >更新时间</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="total_amount">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Account"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >余额总额</rdfs:comment>
-    <rdfs:domain rdf:resource="#Account"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
   </owl:DatatypeProperty>
   <owl:FunctionalProperty rdf:ID="email">
-    <rdfs:domain rdf:resource="#User"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >电子邮件地址，如：hao123@163.com</rdfs:comment>
+    <rdfs:domain rdf:resource="#User"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="id">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >各种id号，如：1234567</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -1684,124 +1685,111 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >各种id号，如：1234567</rdfs:comment>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="domain">
+    <rdfs:domain rdf:resource="#User"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >用户的个性化域名，如：wind4869</rdfs:comment>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="#User"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="phone">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#User"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >用户的手机号码，如：13714726545</rdfs:comment>
+    <rdfs:domain rdf:resource="#User"/>
   </owl:FunctionalProperty>
   <Media rdf:ID="Media_1">
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >media_111401</id>
+    <raw_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://book.douban.com/subject/1842426/</raw_link>
     <media_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >book</media_type>
     <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Effective C++</title>
-    <raw_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >http://book.douban.com/subject/1842426/</raw_link>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >media_111401</id>
     <image_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >http://img3.douban.com/spic/s1764864.jpg</image_link>
   </Media>
-  <owl:DataRange>
-    <owl:oneOf rdf:parseType="Resource">
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >shop</rdf:first>
-      <rdf:rest rdf:parseType="Resource">
-        <rdf:rest rdf:parseType="Resource">
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >media</rdf:first>
-          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-        </rdf:rest>
-        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >goods</rdf:first>
-      </rdf:rest>
-    </owl:oneOf>
-  </owl:DataRange>
+  <Activity rdf:ID="Activity_4">
+    <location rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >哈尔滨教化广场</location>
+    <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >大妈广场舞大赛</title>
+  </Activity>
   <Writing rdf:ID="Writing_1">
-    <created_time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-    >2013-03-21T21:33:33</created_time>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >writing_111401</id>
+    <created_time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >2013-03-21T21:33:33</created_time>
   </Writing>
   <Collection rdf:ID="Collection_3">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    ></rdfs:label>
-    <created_time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-    >2013-07-21T21:34:43</created_time>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >collection_111403</id>
     <have_entity>
       <Media rdf:ID="Media_3">
-        <image_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >http://img5.douban.com/spic/s4018587.jpg</image_link>
-        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >media_111403</id>
         <raw_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >http://music.douban.com/subject/4024444/</raw_link>
+        <image_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >http://img5.douban.com/spic/s4018587.jpg</image_link>
         <media_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >music</media_type>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >media_111403</id>
       </Media>
     </have_entity>
+    <created_time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >2013-07-21T21:34:43</created_time>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:label>
   </Collection>
   <Order rdf:ID="Order_1">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >order_111401</id>
     <created_time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
     >2013-11-10T10:41:53</created_time>
     <have_goods>
       <Goods rdf:ID="Goods_1">
-        <image_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >https://images-cn.ssl-images-amazon.com/images/I/41HGvSZpJIL._SL500_SS130_.jpg</image_link>
-        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >good_111401</id>
-        <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >NOKIA 诺基亚 lumia620手机(蓝色)全新windows phone8.0系统 </title>
         <raw_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >http://www.amazon.cn/NOKIA-%E8%AF%BA%E5%9F%BA%E4%BA%9A-lumia620%E6%89%8B%E6%9C%BA-%E5%85%A8%E6%96%B0windows-phone8-0%E7%B3%BB%E7%BB%9F/dp/B00AWKUR9C/ref=pd_ys_iyr1</raw_link>
+        <image_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >https://images-cn.ssl-images-amazon.com/images/I/41HGvSZpJIL._SL500_SS130_.jpg</image_link>
+        <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >NOKIA 诺基亚 lumia620手机(蓝色)全新windows phone8.0系统 </title>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >good_111401</id>
       </Goods>
     </have_goods>
     <have_goods>
       <Goods rdf:ID="Goods_2">
-        <image_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >https://images-cn.ssl-images-amazon.com/images/I/31xEzTNfR3L._SL500_SS130_.jpg</image_link>
-        <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >HP 惠普 V250 16G 优盘 银色 </title>
-        <raw_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >http://www.amazon.cn/HP-%E6%83%A0%E6%99%AE-V250-16G-%E4%BC%98%E7%9B%98-%E9%93%B6%E8%89%B2/dp/B005LTPV36/ref=pd_ys_iyr20</raw_link>
         <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >good_111401</id>
+        <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >HP 惠普 V250 16G 优盘 银色 </title>
+        <image_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >https://images-cn.ssl-images-amazon.com/images/I/31xEzTNfR3L._SL500_SS130_.jpg</image_link>
+        <raw_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >http://www.amazon.cn/HP-%E6%83%A0%E6%99%AE-V250-16G-%E4%BC%98%E7%9B%98-%E9%93%B6%E8%89%B2/dp/B005LTPV36/ref=pd_ys_iyr20</raw_link>
       </Goods>
     </have_goods>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >order_111401</id>
   </Order>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
-      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >WAIT_BUYER_PAY</rdf:first>
+      >seller</rdf:first>
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >buyer</rdf:first>
+      </rdf:rest>
     </owl:oneOf>
   </owl:DataRange>
   <User rdf:ID="Hao_Youqiang">
-    <created_time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-    >2013-01-21T21:32:53</created_time>
-    <issue rdf:resource="#Writing_1"/>
-    <issue>
-      <Writing rdf:ID="Writing_2">
-        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >writing_111402</id>
-        <created_time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-        >2013-05-21T21:33:48</created_time>
-      </Writing>
-    </issue>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >user_111401</id>
     <place_order rdf:resource="#Order_1"/>
     <own_collection>
       <Collection rdf:ID="Collection_1">
@@ -1820,37 +1808,84 @@
         >collection_111402</id>
         <have_entity>
           <Media rdf:ID="Media_2">
-            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >media_111402</id>
-            <image_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >http://img5.douban.com/spic/s3391437.jpg</image_link>
-            <raw_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >http://movie.douban.com/subject/1485260/</raw_link>
             <media_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >movie</media_type>
+            <raw_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://movie.douban.com/subject/1485260/</raw_link>
+            <image_link rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://img5.douban.com/spic/s3391437.jpg</image_link>
+            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >media_111402</id>
           </Media>
         </have_entity>
       </Collection>
     </own_collection>
     <own_collection rdf:resource="#Collection_3"/>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >user_111401</id>
+    <issue rdf:resource="#Writing_1"/>
+    <issue>
+      <Writing rdf:ID="Writing_2">
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >writing_111402</id>
+        <created_time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2013-05-21T21:33:48</created_time>
+      </Writing>
+    </issue>
+    <created_time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >2013-01-21T21:32:53</created_time>
   </User>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
       <rdf:rest rdf:parseType="Resource">
-        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >buyer</rdf:first>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >out</rdf:first>
       </rdf:rest>
       <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >seller</rdf:first>
+      >in</rdf:first>
     </owl:oneOf>
   </owl:DataRange>
+  <Activity rdf:ID="Activity_3">
+    <location rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >哈工大体育馆</location>
+    <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >羽毛球比赛</title>
+  </Activity>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
       <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >music</rdf:first>
+      >do</rdf:first>
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >collect</rdf:first>
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >wish</rdf:first>
+        </rdf:rest>
+      </rdf:rest>
+    </owl:oneOf>
+  </owl:DataRange>
+  <Activity rdf:ID="Activity_1">
+    <location rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >哈工大图书馆</location>
+    <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >计算机科学图书展览</title>
+  </Activity>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >WAIT_BUYER_PAY</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <Activity rdf:ID="Activity_2">
+    <location rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >哈铁文化宫</location>
+    <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >哈尔滨地铁开通庆祝仪式</title>
+  </Activity>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
       <rdf:rest rdf:parseType="Resource">
         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >movie</rdf:first>
@@ -1858,27 +1893,29 @@
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >picture</rdf:first>
           <rdf:rest rdf:parseType="Resource">
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >bool</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
           </rdf:rest>
         </rdf:rest>
       </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >music</rdf:first>
     </owl:oneOf>
   </owl:DataRange>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >shop</rdf:first>
       <rdf:rest rdf:parseType="Resource">
-        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >collect</rdf:first>
         <rdf:rest rdf:parseType="Resource">
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >wish</rdf:first>
+          >media</rdf:first>
           <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         </rdf:rest>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >goods</rdf:first>
       </rdf:rest>
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >do</rdf:first>
     </owl:oneOf>
   </owl:DataRange>
   <owl:DataRange>
@@ -1902,17 +1939,6 @@
       </rdf:rest>
       <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
       >normal</rdf:first>
-    </owl:oneOf>
-  </owl:DataRange>
-  <owl:DataRange>
-    <owl:oneOf rdf:parseType="Resource">
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >in</rdf:first>
-      <rdf:rest rdf:parseType="Resource">
-        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >out</rdf:first>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-      </rdf:rest>
     </owl:oneOf>
   </owl:DataRange>
 </rdf:RDF>
